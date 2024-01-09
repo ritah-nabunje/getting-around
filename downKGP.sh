@@ -31,6 +31,6 @@ echo -e 1kGP_chr{2..22}'\n' > list_to_merge
 plink \
     --bfile 1kGP_chr1 \
     --merge-list list_to_merge \
-	--allow-no-sex \
-	--make-bed \
+    --allow-no-sex \
+    --make-bed \
     --out 1kGP_allchr
