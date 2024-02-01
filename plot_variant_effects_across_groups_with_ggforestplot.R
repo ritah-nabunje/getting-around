@@ -1,4 +1,10 @@
-# similar to 
+# Comparing effects of significantly associated variants in on ancestry group across others
+# Do these variants have similar effects across the ancestry groups?
+# Note: This is only for variants present in at least 2 groups.
+
+# similar with variant_effects_across_groups.R but plots with ggforestplot
+# PS, ggforestplot will compute odds ratio and confidence intervals from beta and se
+
 setwd("/link/to/dir")
 library(dplyr)
 library(ggplot2)
