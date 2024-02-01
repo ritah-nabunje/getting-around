@@ -1,4 +1,4 @@
-# Comparing effects of significantly associated variants in on ancestry group across others
+# Comparing effects of significantly associated variants in one ancestry group across others
 # Do these variants have similar effects across the ancestry groups?
 # Note: This is only for variants present in at least 2 groups.
 
