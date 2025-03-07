@@ -102,7 +102,7 @@ module load plink
 plink --bfile ${NAME}_nodups \
 --extract filtered_variants_after_liftover.txt \
 -update-map filtered_variants_after_liftover.pos \
---make-bed --out ${NAME}_b38
+--allow-no-sex --make-bed --out ${NAME}_b38
 
 # if your variants had rsids, this is the end but, if they had chr:pos:ref:alt for rsid, then you should run the next lines
 # module load plink2
