@@ -43,18 +43,8 @@ bed <- bimfile[, .(chr = paste0("chr", V1), start = V4, end = V4 + 1, rsid = V2)
 write.table(bed, "b37_coordinates.bed", quote = FALSE, row.names = FALSE, col.names = FALSE)
 EOF
 
-# Check if the R script was successful
-if [ $? -ne 0 ]; then
-  echo "Ooops! Pre-liftover R script failed. :("
-  exit 1
-fi
-
-echo "✿❀❁❃❋❀✿ Pre-liftover BED file preparation completed successfully.✿❀❁❃❋❀✿"
-
 # ======================= lift over 1000 GP b38 to b37 coordinates
 /path/to/liftOver b37_coordinates.bed /path/to/hg19ToHg38.over.chain b38_coordinates.bed unlifted.bed
-
-echo "✿❀❁❃❋❀✿ liftover completed ✿❀❁❃❋❀✿"
 
 # ====================== post-liftover R script=======================
 # only keep the variants that match chr and rsid in both b38 and b37 files (properly mapped)
@@ -86,14 +76,6 @@ write.table(lifted, "filtered_variants_after_liftover.txt", quote = FALSE, row.n
 new_pos <- merged[, c("rsid", "start")] 
 write.table(new_pos, "filtered_variants_after_liftover.pos", quote = FALSE, row.names = FALSE, col.names = FALSE)
 EOF
-
-# Check if the R script was successful
-if [ $? -ne 0 ]; then
-  echo "Ooops! Post-liftover filtering R script failed. :("
-  exit 1
-fi
-
-echo "✿❀❁❃❋❀✿ Post-liftover filtering completed successfully.✿❀❁❃❋❀✿"
 
 # ==================== extract the lifted variants and update positions ==========================
 # make new bfiles with the lifted over variants
